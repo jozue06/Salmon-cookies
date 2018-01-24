@@ -1,10 +1,12 @@
-var hoursOpen = ['10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm','6pm','7pm', '8pm'];
+/* Full Disclosure! Examples taken from google search, gitHub, stackOverflow */
+
+var bizHours = ['10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm','6pm','7pm', '8pm'];
 var table = document.getElementById('locations');
 var stores = [];
 var pikePlace = stores.push(new FishStore ('Pike Place', 8, 17, 88, 5.2, 'pikeRow'));
 
 
-function FishStore(storeLoc, hoursOpen, min, max, avg, storeRow) {
+function FishStore(storeLoc, bizHours, min, max, avg, storeRow) {
   this.name = storeLoc;
   this.minCustomer = min;
   this.maxCustomer = max;
@@ -18,7 +20,7 @@ FishStore.prototype.getRandomcust = function() {
   return Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer;
 };
 FishStore.prototype.getHourlySales = function () {
-  for (var i = 0; i< hoursOpen.length; i++) {
+  for (var i = 0; i< bizHours.length; i++) {
     var rand = Math.floor(this.getRandomcust() * this.avgCookie);
     this.hourlySales.push(rand);
     this.totalSales += rand;
@@ -55,9 +57,9 @@ function generateTableHeading(){
   td.innerHTML = 'Location';
   row.appendChild(td);
 
-  for (var i = 0; i < hoursOpen.length; i++) {
+  for (var i = 0; i < bizHours.length; i++) {
     var td = document.createElement('td');
-    td.innerHTML = hoursOpen[i];
+    td.innerHTML = bizHours[i];
     row.appendChild(td);
   }
 
@@ -81,7 +83,7 @@ var clearFields = function(event){
   event.target.avgInput.value = null;
 };
 
-var formEle = document.getElementById('form');
+var formEle = document.getElementById('entryForm');
 formEle.addEventListener('submit', function(event) {
   event.preventDefault();
   var newStoreName = event.target.storeLocal.value;

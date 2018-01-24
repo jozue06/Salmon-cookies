@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <!--
+         Full Disclosure! Examples taken from google search, gitHub, stackOverflow         
+        /-->
     <meta charset="utf-8">
-    <title>Pat's Salmon Cookies Company</title>
-    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <title>Pat's Salmon Cookies Shack</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="style.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
     <h1>Pat's Salmon Cookies!</h1>
-    <p><h4 id='tagLine'>Sweet cookies with salmon meat?! YES!</h4>
-    </p>
-    <h2>Add Store Sales Generator</h2>
-    <p><img class='logo' src='img/salmon.png'id='salmon'/>
-    </p>
-    <p><div id='inputForm' align='center'>
-      <form id='form'>
-      <p><label>Location &nbsp; <input type="text" id="storeLocal"></label>
-      <label> Min. Customer <input type="text" id="minInput"></label>
-      <label> Max. Customer <input type="text" id="maxInput"></label>
-      <label> Average Sales <input type="text" id="avgInput"></label>
-      <button type="submit" id="submit">Submit</button>
-      </form>
-    </div>
-   </p>
-    <table id="stores" align="center"></table>
-   </p>
-      <div id="home">
-        <a href="index.html">Home</a>
-      </div>
+    <p><div id='wrapper'>
+    <h2>Store stock projection App:</h2>
+        <p><div id='Form' align='center'>
+         <form id='entryForm'>
+        <p><label>Location<input type="text" placeholder="Location" id="storeLocal"></label>
+        <label> Min. Customer <input type="text" placeholder="Min. Customer" id="minInput" ></label>
+        <label> Max. Customer <input type="text" placeholder="Max. Customer" id="maxInput" ></label>
+        <label> Average Sales <input type="text" placeholder="Average Sales" id="avgInput" ></label>
+        <button type="submit" id="submit">Submit</button>
+        </form>
+         </div>
+     </div>
+        </p>
+        <table id="stores" align="center"></table>
+        </p>   
+      
+      
     <script src="app.js"></script>
   </body>
+  <footer>
+        <div id="home">
+                <a href="index.html">Home</a>
+              </div>
+  </footer>
 </html>
