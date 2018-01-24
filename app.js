@@ -1,5 +1,53 @@
-/* Full Disclosure! Examples taken from google search, gitHub, stackOverflow */
+//the hours of opperation variable:
+var bizHours = ['6am', '7am', '8am', '9am','10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm','6pm','7pm', '8pm'];
+//the first store info object:
+var alki = {
+  name: 'Alki',
+  minCustomer: 2,
+  maxCustomer: 16,
+  avgCookie: 4.6,
+  salesPerH: [],
+  totalSales: 0,
+  //creates random customer info
+  randomCust: function(){
+    return Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer;
+  },
+  //pushes the random info into the sales per hour array with the bizhour info
+  makeSalesPerH: function(){
+    for (var i = 0; i < bizHours.length; i++ ){
+      var random = Math.floor(this.randomCust() * this.avgCookie);
+      this.salesPerH.push(random);
+      this.totalSales += random;
+    }
+  },
+  //creates the table with the info from "this.sales per h"
+  makeTable: function(){
+    this.makeSalesPerH();
+    var storeEle = document.getElementById('stores');
+    var tableEle = document.createElement('ul');
+    //takes biz hours info and sales per that biz hour and contactinates them in the LI's
+    for (var i = 0; i < bizHours.length; i++){
+      var rowEle = document.createElement('li');
+      rowEle.textContent = bizHours[i] + ' : ' + this.salesPerH[i] + ' cookies';
+      tableEle.appendChild(rowEle);
+    }
+    //makes a seperate LI for just total sales all day
+    var totalEle = document.createElement('li');
+    totalEle.textContent = 'Total: ' + this.totalSales;
+    tableEle.appendChild(totalEle);
+    storeEle.textContent = this.name;
+    storeEle.appendChild(tableEle);
+  }
+};
+alki.makeTable(); //calls the elements, store and all its info, and all the functions inside the object
 
+
+
+
+
+
+
+/*
 var bizHours = ['6am', '7am', '8am', '9am','10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm','6pm','7pm', '8pm'];
 var table = document.getElementById('locations');
 var stores = [];
@@ -47,7 +95,7 @@ FishStore.prototype.render = function() {
 
   storeSection.appendChild(row);
 };
-console.log(pikePlace.bizHours);
+console.log(pikePlace.minCustomer);
 function generateTableHeading(){
   var storeSection = document.getElementById('stores');
   var thead = document.createElement('thead');
@@ -84,7 +132,7 @@ stores.forEach(function(store){
   event.target.avgInput.value = null;
 };
 */
-
+/*
 var formEle = document.getElementById('entryForm');
 formEle.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -97,4 +145,4 @@ formEle.addEventListener('submit', function(event) {
   newStore.getHourlySales();
   newStore.render();
   stores.push(newStore);
-});
+});*/
