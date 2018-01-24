@@ -1,10 +1,11 @@
 /* Full Disclosure! Examples taken from google search, gitHub, stackOverflow */
 
-var bizHours = ['10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm','6pm','7pm', '8pm'];
+var bizHours = ['6am', '7am', '8am', '9am','10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm','6pm','7pm', '8pm'];
 var table = document.getElementById('locations');
 var stores = [];
 var pikePlace = stores.push(new FishStore ('Pike Place', 8, 17, 88, 5.2, 'pikeRow'));
-
+var seaTac = stores.push(new FishStore ('Sea Tac Airport', 24, 1.2,8, 5,'seaRow'));
+console.log(seaTac);
 
 function FishStore(storeLoc, bizHours, min, max, avg, storeRow) {
   this.name = storeLoc;
@@ -46,7 +47,7 @@ FishStore.prototype.render = function() {
 
   storeSection.appendChild(row);
 };
-
+console.log(pikePlace.bizHours);
 function generateTableHeading(){
   var storeSection = document.getElementById('stores');
   var thead = document.createElement('thead');
@@ -76,12 +77,13 @@ stores.forEach(function(store){
   store.render();
 });
 
-var clearFields = function(event){
+/*var clearFields = function(event){
   event.target.storeLocal.value = null;
   event.target.minInput.value = null;
   event.target.maxInput.value = null;
   event.target.avgInput.value = null;
 };
+*/
 
 var formEle = document.getElementById('entryForm');
 formEle.addEventListener('submit', function(event) {
@@ -95,5 +97,4 @@ formEle.addEventListener('submit', function(event) {
   newStore.getHourlySales();
   newStore.render();
   stores.push(newStore);
-  clearFields(event);
 });
