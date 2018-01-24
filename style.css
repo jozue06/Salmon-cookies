@@ -1,0 +1,44 @@
+    body{
+        margin: 0;
+        background-color: aquamarine;
+    }    
+    
+    #tagLine{
+    text-align: center;
+    }
+    
+    #stores{
+        width: 80%;
+    }
+
+    
+    #wrapper {
+    background-color: rgba(137, 43, 226, 0.87);
+    }
+    
+    
+    img#salmon.logo {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+    
+    }   
+    
+    .column{
+            float: left;
+            width: 30%;
+            border: rgba(137, 43, 226, 0.87) solid;
+            overflow: hidden;   
+    }
+    
+    .column:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+        
+
+    footer{
+        text-align: center;
+        margin: auto;
+    }
