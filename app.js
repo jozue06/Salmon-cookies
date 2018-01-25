@@ -7,44 +7,63 @@ var bizHours = ['6am', '7am', '8am', '9am','10am', '11am', '12pm', '1pm', '2pm',
 
 ////create list of locations factory:
 
-var allLocations = [];
-
-var totalSales =0;
-
+var locations = [];
+var totalSales = 0;
 var netTotal = 0;
 
-function makeLocation(name, minCustomer, maxCustomer, avgCookie){
+function MakeLocation(name, minCustomer, maxCustomer, avgCookie, totalSales){
   //statements can be properties and methods
   this.name = name;
   this.minCustomer = minCustomer;
   this.maxCustomer = maxCustomer;
   this.avgCookie = avgCookie;
+  this.totalSales = totalSales;
   this.salesPerH = [];
-  this.totalSales = 0;
-  allLocations.push(this);
+  locations.push(this);
 }
 //makeLocation();
 
 // function to call all functions:
 
-function makeAll(){
-  new makeLocation('Alki', 2, 16, 4.6);
-  new makeLocation('First and Pike', 4, 23, 4.8);
-}
-makeAll();
-
-
 //// generate table
 
-function makeRow() {
-  var stores = document.getElementById('store1');
-  var trEl = document.createElement('tr');
-  var thEl = document.createElement('th');
-  trEl.appendChild(thEl);
+// function makeRow() {
+//   for (var i = 0; i < bizHours.length; i++){
+//     var stores1 = document.getElementById('store1');
+//     var trEl = document.createElement('tr');
+//     var thEl = document.createElement('th');
+//     trEl.appendChild(thEl);
+//     thEl.textContent = ('Table');
+//     stores1.textContent = this.name;
+//   }
+// }
+// makeRow();
+////
+function makeTable() {
+  for (var i = 0; i < bizHours.length; i++){
+  //this.makeSalesPerH();
+    var storeEle = document.getElementById('store1');
+    var tableEle = document.createElement('th');
+    //takes biz hours info and sales per that biz hour and contactinates them in the LI's
+    var rowEle = document.createElement('tr');
+    // rowEle.textContent = bizHours[i] + ': ' + this.salesPerH[i] + ' cookies';
+    tableEle.appendChild(rowEle); //renders
+    //makes a seperate LI for just total sales all day
+    var totalEle = document.createElement('tr');
+    totalEle.textContent = 'Total: ' + this.totalSales;
+    tableEle.appendChild(totalEle);
+    storeEle.textContent = 'Name:' + this.name;
+    storeEle.appendChild(tableEle);
+  }
 }
+makeTable();
 
-
-var alki = {
+function makeAll() {
+  new MakeLocation('Alki', 2, 16, 4.6, 90);
+  new MakeLocation('First and Pike', 4, 23, 4.8, 90);
+}
+makeAll();
+/*var alki = {
   name: 'Alki',
   minCustomer: 2,
   maxCustomer: 16,
@@ -63,6 +82,7 @@ var alki = {
       this.totalSales += random;
     }
   },
+};
 
 
   //creates the table with the info from "this.sales per h"
@@ -70,32 +90,30 @@ var alki = {
   makeTable: function(){
     this.makeSalesPerH();
     var storeEle = document.getElementById('store1');
-    var tableEle = document.createElement('ul');
+    var tableEle = document.createElement('th');
     //takes biz hours info and sales per that biz hour and contactinates them in the LI's
     for (var i = 0; i < bizHours.length; i++){
-      var rowEle = document.createElement('li');
+      var rowEle = document.createElement('tr');
       rowEle.textContent = bizHours[i] + ': ' + this.salesPerH[i] + ' cookies';
       tableEle.appendChild(rowEle); //renders
     }
     //makes a seperate LI for just total sales all day
-    var totalEle = document.createElement('li');
+    var totalEle = document.createElement('tr');
     totalEle.textContent = 'Total: ' + this.totalSales;
     tableEle.appendChild(totalEle);
     storeEle.textContent = this.name;
     storeEle.appendChild(tableEle);
-  }
+  };
 
-};
+// document.getElementById('store1').addEventListener('click',function(){
+//   showTable('store1');
+// });
+// function showTable(){
+//   {
+//     alkithis.makeTable();
 
-document.getElementById('store1').addEventListener('click',function(){
-  showTable('store1');
-});
-function showTable(){
-  {
-    alki.makeTable();
-
-  }
-}
+//   }
+// }
 //alki.makeTable();
 //calls the elements, store and all its info, and all the functions inside the object
 
@@ -279,3 +297,4 @@ function showTable5(){
 }
 
 //capHill.makeTable();
+*/

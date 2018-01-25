@@ -31,11 +31,11 @@ text-align: center;
 }
 
 #stores{
-    width: 80%;
+    width: 100%;
 }
 
 table {
-padding: 1%;
+padding: 50%;
 background-color: #4CAF50;
 color: white;
 }
