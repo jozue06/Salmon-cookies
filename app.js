@@ -21,6 +21,8 @@ var alki = {
       this.totalSales += random;
     }
   },
+
+  
   //creates the table with the info from "this.sales per h"
 
   makeTable: function(){
