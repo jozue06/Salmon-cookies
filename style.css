@@ -14,8 +14,12 @@
     
     #wrapper {
     background-color: rgba(137, 43, 226, 0.87);
+    text-align: center;
     }
     
+    #news{
+       width: 100%;
+    }
     
     img#salmon.logo {
         width: 50%;
@@ -26,14 +30,14 @@
     
     .column{
             float: left;
-            width: 30%;
+            width: 32%;
             border: rgba(137, 43, 226, 0.87) solid;
-            overflow: hidden;   
+            overflow: hidden;
             text-align: center;
     }
         
 
     footer{
         text-align: center;
-        margin: auto;
+        margin: 10%;
     }
