@@ -4,6 +4,12 @@ var bizHours = ['6am', '7am', '8am', '9am','10am', '11am', '12pm', '1pm', '2pm',
 
 //constructors create new objects like a factory.
 
+
+//create list of locations:
+
+var allLocations = [];
+
+
 var alki = {
   name: 'Alki',
   minCustomer: 2,
