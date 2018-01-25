@@ -29,12 +29,7 @@
             width: 30%;
             border: rgba(137, 43, 226, 0.87) solid;
             overflow: hidden;   
-    }
-    
-    .column:after {
-        content: "";
-        display: table;
-        clear: both;
+            text-align: center;
     }
         
 

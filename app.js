@@ -1,6 +1,7 @@
 //the hours of opperation variable:
 var bizHours = ['6am', '7am', '8am', '9am','10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm','6pm','7pm', '8pm'];
 //the first store info object:
+
 var alki = {
   name: 'Alki',
   minCustomer: 2,
@@ -9,6 +10,7 @@ var alki = {
   salesPerH: [],
   totalSales: 0,
   //creates random customer info
+  
   randomCust: function(){
     return Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer;
   },
@@ -21,6 +23,7 @@ var alki = {
     }
   },
   //creates the table with the info from "this.sales per h"
+  
   makeTable: function(){
     this.makeSalesPerH();
     var storeEle = document.getElementById('store1');
@@ -38,8 +41,19 @@ var alki = {
     storeEle.textContent = this.name;
     storeEle.appendChild(tableEle);
   }
+
 };
-alki.makeTable(); //calls the elements, store and all its info, and all the functions inside the object
+
+document.getElementById('store1').addEventListener('click',function(){
+  showTable('store1');
+});
+function showTable(){
+  {
+    alki.makeTable();
+  }
+}
+//alki.makeTable();
+//calls the elements, store and all its info, and all the functions inside the object
 
 
 var pikePlace  = {
@@ -75,7 +89,16 @@ var pikePlace  = {
     storeEle.appendChild(tableEle);
   }
 };
-pikePlace.makeTable();
+
+document.getElementById('store2').addEventListener('click',function(){
+  showTable2('store2');
+});
+function showTable2(){
+  {
+    pikePlace.makeTable();
+  }
+}
+//pikePlace.makeTable();
 
 
 var seaTac  = {
@@ -111,7 +134,19 @@ var seaTac  = {
     storeEle.appendChild(tableEle);
   }
 };
-seaTac.makeTable();
+
+document.getElementById('store3').addEventListener('click',function(){
+  showTable3('store3');
+});
+function showTable3(){
+  {
+    seaTac.makeTable();
+  }
+}
+//seaTac.makeTable();
+
+
+
 
 var seaCen  = {
   name: 'Seattle Center',
@@ -146,7 +181,17 @@ var seaCen  = {
     storeEle.appendChild(tableEle);
   }
 };
-seaCen.makeTable();
+
+document.getElementById('store4').addEventListener('click',function(){
+  showTable4('store4');
+});
+function showTable4(){
+  {
+    seaCen.makeTable();
+  }
+}
+
+//seaCen.makeTable();
 
 
 var capHill  = {
@@ -182,7 +227,19 @@ var capHill  = {
     storeEle.appendChild(tableEle);
   }
 };
-capHill.makeTable();
+
+document.getElementById('store5').addEventListener('click',function(){
+  showTable5('store5');
+});
+function showTable5(){
+  {
+    capHill.makeTable();
+  }
+}
+
+//capHill.makeTable();
+
+
 
 /*
 var bizHours = ['6am', '7am', '8am', '9am','10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm','6pm','7pm', '8pm'];
