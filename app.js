@@ -5,9 +5,43 @@ var bizHours = ['6am', '7am', '8am', '9am','10am', '11am', '12pm', '1pm', '2pm',
 //constructors create new objects like a factory.
 
 
-//create list of locations:
+////create list of locations factory:
 
 var allLocations = [];
+
+var totalSales =0;
+
+var netTotal = 0;
+
+function makeLocation(name, minCustomer, maxCustomer, avgCookie){
+  //statements can be properties and methods
+  this.name = name;
+  this.minCustomer = minCustomer;
+  this.maxCustomer = maxCustomer;
+  this.avgCookie = avgCookie;
+  this.salesPerH = [];
+  this.totalSales = 0;
+  allLocations.push(this);
+}
+//makeLocation();
+
+// function to call all functions:
+
+function makeAll(){
+  new makeLocation('Alki', 2, 16, 4.6);
+  new makeLocation('First and Pike', 4, 23, 4.8);
+}
+makeAll();
+
+
+//// generate table
+
+function makeRow() {
+  var stores = document.getElementById('store1');
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  trEl.appendChild(thEl);
+}
 
 
 var alki = {
