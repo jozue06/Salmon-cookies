@@ -26,15 +26,15 @@ var alki = {
   makeTable: function(){
     this.makeSalesPerH();
     var storeEle = document.getElementById('store1');
-    var tableEle = document.createElement('ul');
+    var tableEle = document.createElement('th');
     //takes biz hours info and sales per that biz hour and contactinates them in the LI's
     for (var i = 0; i < bizHours.length; i++){
-      var rowEle = document.createElement('li');
+      var rowEle = document.createElement('td');
       rowEle.textContent = bizHours[i] + ': ' + this.salesPerH[i] + ' cookies';
       tableEle.appendChild(rowEle); //renders
     }
     //makes a seperate LI for just total sales all day
-    var totalEle = document.createElement('li');
+    var totalEle = document.createElement('td');
     totalEle.textContent = 'Total: ' + this.totalSales;
     tableEle.appendChild(totalEle);
     storeEle.textContent = this.name;

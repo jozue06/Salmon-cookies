@@ -21,6 +21,8 @@ var bizHours = [
   '8pm'
 ];
 
+
+
 //we need to create a place for our list of all locations to be placed whenwe create them
 var locations = [];
 
@@ -30,27 +32,6 @@ var totalCookiesByHour = 0;
 var netTotal = 0;
 
 //constructor function begin with an Uppercase letter
-
-function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour) {
-  //a function called MakeLocation will be a template for creating new objects that represent other locations
-  //the statements in this function add properties and or methods to the objects
-  //the this keyword is used instead of the object name to indicate that th property or method belongs to the object that this function creates
-  //this function has four parameters and each one sets the value of a property in the object
-  this.name = name;
-  this.minCustPerHour = minCustPerHour;
-  this.maxCustPerHour = maxCustPerHour;
-  this.avgCookieSoldPerHour = avgCookieSoldPerHour;
-  //why is this an array?
-  this.randCustByHour = [];
-  this.cookiesByHour = [];
-  this.totalSales = 0;
-  locations.push(this);
-  //using the this keyword in front of the method to show that the method belongs to the object that this function creates
-  // this.calcRandCustByHour = function() {
-  // // METHODS GO HERE
-  // //THINK ABOUT PROTOTYPES
-  // };
-}
 function makeStands() {
   new MakeLocation('First and Pike', 23, 65, 6.3);
   new MakeLocation('SeaTac Airport', 3, 24, 1.2);
@@ -59,6 +40,74 @@ function makeStands() {
   new MakeLocation('Alki', 2, 16, 4.6);
 }
 makeStands();
+
+function MakeLocation( name, minCustPerHour, maxCustPerHour, avgCookies) {
+  //a function called MakeLocation will be a template for creating new objects that represent other locations
+  //the statements in this function add properties and or methods to the objects
+  //the this keyword is used instead of the object name to indicate that th property or method belongs to the object that this function creates
+  //this function has four parameters and each one sets the value of a property in the object
+  this.name = name;
+  this.minCustPerHour = minCustPerHour;
+  this.maxCustPerHour = maxCustPerHour;
+  this.avgCookies = avgCookies;
+  //why is this an array?
+  this.randCustByHour = [];
+  this.cookiesByHour = [];
+  this.totalSales = 4;
+  locations.push(this);
+
+  function render(){
+  }
+  var storeSection = document.getElementById('store1');
+  var row = document.createElement('td');
+  var td = document.createElement('td');
+  td.textContent = this.name;
+  row.appendChild(td);
+
+  for (var j = 0; j <bizHours.length; j++) {
+    var tdHourly = document.createElement('td');
+    var minCust = document.createElement('th');
+    minCust.textContent = this.minCustPerHour;
+    tdHourly.textContent = this.avgCookies;
+    row.appendChild(tdHourly);
+  }
+
+  var total = document.createElement('th');
+  total.textContent = this.totalSales[i];
+  row.appendChild(total);
+  storeSection.appendChild(row);
+
+  for (var i = 0; i < locations.length; i++) {
+    var tdNames = document.createElement('th');
+    tdNames.textContent = this.totalSales[i];
+    row.appendChild(tdNames);
+  }
+
+  function generateTableHeading(){
+    var storeSection = document.getElementById('store1');
+    var thead = document.createElement('thead');
+    storeSection.appendChild(thead);
+    var row = document.createElement('tr');
+    thead.appendChild(row);
+    var td = document.createElement('th');
+    row.appendChild(td);
+
+    for (var i = 0; i < bizHours.length; i++) {
+      // var td2 = document.createElement('th');
+      // td2.textContent = bizHours[i];
+      row.appendChild(td);
+    }
+  }
+  generateTableHeading();
+ 
+
+  //using the this keyword in front of the method to show that the method belongs to the object that this function creates
+  // this.calcRandCustByHour = function() {
+  // // METHODS GO HERE
+  // //THINK ABOUT PROTOTYPES
+  // };
+}
+
 
 //remember to call the METHODS in the constructor that are now prototypes available to the new objects the constructor will MakeLocation
 // this.calcRandCustByHour();
@@ -83,49 +132,6 @@ makeStands();
 //   }
 // }
 // makeHeaderRow();
-
-function render(){
-  var storeSection = document.getElementById('store1');
-  var row = document.createElement('tr');
-  var td = document.createElement('td');
-  td.innerHTML = MakeLocation.name;
-  row.appendChild(td);
-
-  for (var i = -1; i < MakeLocation.cookiesByHour.length; i++) {
-    var tdHourly = document.createElement('td');
-    tdHourly.innerHTML = this.cookiesByHour[i];
-    row.appendChild(tdHourly);
-  }
-
-  var total = document.createElement('td');
-  total.innerHTML = this.totalSales;
-  row.appendChild(total);
-  storeSection.appendChild(row);
-}
-
-function generateTableHeading(){
-  var storeSection = document.getElementById('store1');
-  var thead = document.createElement('thead');
-  storeSection.appendChild(thead);
-  var row = document.createElement('tr');
-  thead.appendChild(row);
-  var td = document.createElement('td');
-  td.innerHTML = 'Location';
-  row.appendChild(td);
-  for (var i = -1; i < bizHours.length; i++) {
-    var td2 = document.createElement('td');
-    td2.innerHTML = bizHours[i];
-    row.appendChild(td2);
-  }
-  var tdTotal = document.createElement('th');
-  tdTotal.textContent = MakeLocation.totalSales;
-  tdTotal.innerHTML = 'Total';
-  row.appendChild(tdTotal);
-  storeSection.appendChild(row);
-}
-
-generateTableHeading();
-render();
 
 
 //consider a for loop for the hours
