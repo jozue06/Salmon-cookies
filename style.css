@@ -1,43 +1,111 @@
-    body{
-        margin: 0;
-        background-color: aquamarine;
-    }    
-    
-    #tagLine{
-    text-align: center;
-    }
-    
-    #stores{
-        width: 80%;
-    }
 
-    
-    #wrapper {
-    background-color: rgba(137, 43, 226, 0.87);
-    text-align: center;
-    }
-    
-    #news{
-       width: 100%;
-    }
-    
-    img#salmon.logo {
-        width: 50%;
-        display: block;
-        margin: 0 auto;
-    
-    }   
-    
-    .column{
-            float: left;
-            width: 32%;
-            border: rgba(137, 43, 226, 0.87) solid;
-            overflow: hidden;
-            text-align: center;
-    }
-        
+*{
+padding:0;
+margin:0;
+}
 
-    footer{
-        text-align: center;
-        margin: 10%;
-    }
+h1{
+    text-align: center;
+}
+
+.wrapper{
+background-color: #fff;
+position: relative;
+z-index: 600;
+box-shadow:0 0 10px #000;
+}
+body{
+padding-top:100vh;
+}
+.header{
+height:100vh;
+width:100%;
+background-image: url(img/back_ground.jpg);
+background-size: cover;
+background-position: 50% 55%;
+position:fixed;
+top:0;
+left:0;
+right:0;
+}
+.header p{
+font-family: 'Montserrat', sans-serif;
+text-align:center;
+margin-top:45vh;
+font-family: Dosis;
+font-weight:700;
+font-size:3.1em;
+color:#fff;
+text-shadow: 0 1px 2px rgba(0,0,0, .74);
+text-transform: uppercase;
+}
+.content{
+height:100vh;
+background-color: aquamarine;
+border: 2px rgba(137, 43, 226, 0.87) solid;
+}    
+
+
+body{
+    margin: 0;
+    background-color: aquamarine;
+}    
+
+#tagLine{
+text-align: center;
+}
+
+#stores{
+    width: 80%;
+}
+
+
+#wrapper {
+background-color: rgba(137, 43, 226, 0.87);
+text-align: center;
+}
+
+#news{
+    width: 100%;
+}
+
+img#salmon.logo {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+
+}   
+
+.column{
+    font-family: 'Montserrat', sans-serif;
+    display: inline;
+    text-align: center;
+}
+.column h2{
+color: rgba(137, 43, 226, 0.87);
+font-style: italic;
+padding-top: 2%;
+}  
+
+footer{
+    text-align: center;
+    position: relative;
+    margin: 10%;
+    z-index: 1;
+    background-color:  rgba(137, 43, 226, 0.87);
+}
+
+.tagline{
+    padding-top: 15%;
+    padding-bottom: 15%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 150%;
+}
+
+li {
+    padding-top: 1%;
+}
+
+h3{
+    padding-top: 2%;
+}

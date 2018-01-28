@@ -104,13 +104,6 @@ new Stores('Seattle Center', 11, 38, 3.7);
 new Stores('Capitol Hill', 20, 38, 2.3);
 new Stores('Alki', 2, 16, 4.6);
 
-//new Stores('First and Pike', 23, 65, 6.3);
-//new Stores('SeaTac Airport', 3, 24, 1.2);
-//new Stores('Seattle Center', 11, 38, 3.7);
-//new Stores('Capitol Hill', 20, 38, 2.3);
-//new Stores('Alki', 2, 16, 4.6);
-
-
 
 
 makeHeaderRow();
@@ -154,12 +147,19 @@ makeFooterRow();
 //   locations.push(this);
 // }
 
+
+//new Stores('First and Pike', 23, 65, 6.3);
+//new Stores('SeaTac Airport', 3, 24, 1.2);
+//new Stores('Seattle Center', 11, 38, 3.7);
+//new Stores('Capitol Hill', 20, 38, 2.3);
+//new Stores('Alki', 2, 16, 4.6);
+
 // Stores.prototype.randCookies = function(){
 //   for (var i = 0; i < bizHours.length; i++ ){
 //     var random = Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour;
 //     this.cookiesByHour.push(random);
 //     //console.log(random);
-//     //might think of adding the 
+//     //might think of adding th
 //   }
 // };
 
