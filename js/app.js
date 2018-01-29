@@ -33,7 +33,7 @@ function Stores(name, minCustomers, maxCustomers, avgCookies) {
   this.totalDailyCookies = 0;
   this.numOfCustPerHour();
   this.cookiesPerCust();
-  storeLocations.push(this);
+  storeLocations.push(this); 
 }
 
 Stores.prototype.render = function () {
@@ -129,3 +129,164 @@ new Stores('Alki', 2, 16, 4.6);
 makeHeaderRow();
 renderAllStores();
 makeFooterRow();
+
+
+'use strict';
+
+var bizHours = [
+  '6am',
+  '7am',
+  '8am',
+  '9am',
+  '10am',
+  '11am',
+  '12pm',
+  '1pm',
+  '2pm',
+  '3pm',
+  '4pm',
+  '5pm',
+  '6pm',
+  '7pm',
+  '8pm'
+];
+
+var storeArray = [];
+
+var salmonTable = document.getElementById('store2'); //calls HTML to make the table before anyhthing is added and is a global variable at ID tag located in HTML
+
+
+// Constructor for store info and push to storeArray:
+function Stores( name, minCustPerHour, maxCustPerHour, avgCookies) {
+  this.name = name;
+  this.minCustPerHour = minCustPerHour;
+  this.maxCustPerHour = maxCustPerHour;
+  this.avgCookies = avgCookies;
+  this.randCustPerHour = [];
+  this.cookiesPerHour = [];
+  this.totalSales = 0;
+  this.randCookiesPerH(); //function1
+  storeArray.push(this); //pushes info to storeArray
+}
+
+Stores.prototype.render = function () {//renders store names and data from the constructor, which got the numbers by the random number generator pushed to the arrays in the constructors
+  var nameRow = document.createElement('tr'); //creates the row "left to right" starting with the name of the store, then taking all the data points in from the "Store" constructor.
+  var storeColumn = document.createElement('td'); //creates the first column, where the store names will go
+  storeColumn.textContent = this.name; // tells the computer to take the text from the this.name info in the constructor and put it in the location "storeColumn" that was created above.
+  nameRow.appendChild(storeColumn); // makes nameRow get appended to the storeColumn, left to right, then to top to bottom.
+
+  for (var i = 0; i < this.cookiesPerH.length; i++);{ // this is a for loop to populate the cells and rows with the data related to the length of 'cookies per hour' array in the constructor, and generates random data each time it loops through.
+    var dataCell = document.createElement('td'); // this creates the table detail row 'dataCell
+    dataCell.textContent = this.cookiesPerH[i];  // takes the info in cookies per hour array, cycles through the array and puts that info into dataCell as text content.
+    
+  }
+
+};
+
+Stores.prototype.randCookiesPerH = function(){ //function1
+  for (var i = 0; i < bizHours.length; i++ ){
+    var random = Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour;
+    this.cookiesByHour.push(random);
+  }
+};
+
+
+
+// function generateTableHeading(){
+//   var hourHead = document.getElementById('thead');
+//   var thead = document.createElement('thead');
+//   hourHead.appendChild(thead);
+//   var row = document.createElement('tr');
+//   thead.appendChild(row);
+
+//   for (var i = -1; i < bizHours.length; i++) {
+//     var td = document.createElement('th');
+//     td.textContent = bizHours[i];
+//     row.appendChild(td);
+//   }
+// }
+// generateTableHeading();
+
+// function renderNames(){
+//   var hourHead = document.getElementById('tbody');
+//   var td = document.createElement('tr');
+//   hourHead.appendChild(td);
+//   for (var i = 0; i < locations.length; i++) {
+//     var tr = document.createElement('tr');
+//     tr.textContent = locations[i].name;
+//     td.appendChild(tr);
+//   }
+//   var numbers = document.getElementById('tbody');
+//   var th = document.createElement('tr');
+//   numbers.appendChild(th);
+
+//   for (var j = 0; j < bizHours.length; j++) {
+//     var list = document.getElementById('tbody');
+//     var tr = document.createElement('tr');
+//     td.textContent = locations[j].cookiesByHour;
+//     list.appendChild(tr);
+//   }
+// }
+// renderNames();
+
+
+// function renderNumbers(){
+  
+// renderNumbers();
+// console.log(renderNumbers);
+
+// var dataPoints = document.getElementById('store1');
+//   var thead1 = document.createElement('th');
+//   dataPoints.appendChild(thead1);
+//   var tr1 = document.createElement('tr');
+//   thead1.appendChild(tr1);
+
+//   for (var j = 0; j < locations.length; j++) {
+//     var td1 = document.createElement('tr');
+//     var cphArr = locations[j].cookiesByHour;
+//     console.log('__CPH_ARR__: ', cphArr);
+//     td1.textContent = cphArr;
+//     thead.appendChild(td);
+//   }
+// }
+
+//console.log(generateTableHeading);
+
+
+
+
+// function renderData(){
+//   var dataPoints = document.getElementById('store1');
+//   var thead = document.createElement('th');
+//   dataPoints.appendChild(thead);
+//   for (var i = 0; i < locations.length; i++) {
+//     var tr = document.createElement('tr');
+//     tr.textContent = locations[i].maxCustPerHour;
+//     thead.appendChild(tr);
+//   }
+// }
+// renderData();
+
+// function renderData2(){
+//   var dataPoints = document.getElementById('store1');
+//   var thead = document.createElement('th');
+//   dataPoints.appendChild(thead);
+
+//   for (var i = 0; i < locations.length; i++) {
+//     var tr = document.createElement('tr');
+//     tr.textContent = locations[i].avgCookies;
+//     thead.appendChild(tr);
+//   }
+// }
+// renderData2();
+
+// console.log(renderData);
+
+
+
+
+
+
+
+//@jm6
+
