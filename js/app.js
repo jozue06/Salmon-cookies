@@ -122,6 +122,8 @@ new Stores('Alki', 2, 16, 4.6);
 
 
 generateTableHeading();
+renderNames();
+footerRow();
 
 var formEle = document.getElementById('entryForm');
 formEle.addEventListener('submit', function(event) {
@@ -130,14 +132,13 @@ formEle.addEventListener('submit', function(event) {
   var newMin = parseInt(event.target.minInput.value);
   var newMax = parseInt(event.target.maxInput.value);
   var newAvg = parseFloat(event.target.avgInput.value);
-  var newRow = newStoreName + 'Row';
+  var newRow = newStoreName;
   var newStore = new Stores(newStoreName, 8, newMin, newMax, newAvg, newRow);
   newStore.randCookiesPerH();
   newStore.render();
   storeArray.push(newStore);
 });
-renderNames();
-footerRow();
+
 
 
 //@jm6
