@@ -88,7 +88,6 @@ function generateTableHeading() {
 
 }
 
-
 function renderNames() {
   for (var i = 0; i < storeArray.length; i++) {
     storeArray[i].render();
@@ -121,15 +120,24 @@ new Stores('Seattle Center', 11, 38, 3.7);
 new Stores('Capitol Hill', 20, 38, 2.3);
 new Stores('Alki', 2, 16, 4.6);
 
+
 generateTableHeading();
+
+var formEle = document.getElementById('entryForm');
+formEle.addEventListener('submit', function(event) {
+  event.preventDefault();
+  var newStoreName = event.target.storeLocal.value;
+  var newMin = parseInt(event.target.minInput.value);
+  var newMax = parseInt(event.target.maxInput.value);
+  var newAvg = parseFloat(event.target.avgInput.value);
+  var newRow = newStoreName + 'Row';
+  var newStore = new Stores(newStoreName, 8, newMin, newMax, newAvg, newRow);
+  newStore.randCookiesPerH();
+  newStore.render();
+  storeArray.push(newStore);
+});
 renderNames();
 footerRow();
-
-
-
-
-
-
 
 
 //@jm6
