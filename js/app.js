@@ -93,9 +93,9 @@ function renderNames() {
     storeArray[i].render();
   }
 }
+
+
 var tableFootRow = document.createElement('tr');
-
-
 function footerRow() {
   tableFootRow.textContent = 'Totals';
   salmonTable.appendChild(tableFootRow);
