@@ -44,7 +44,7 @@ Stores.prototype.render = function () {//renders store names and data from the c
   nameRow.appendChild(storeColumn); // makes nameRow get appended to the storeColumn, left to right, then to top to bottom.
   for (var i = 0; i < this.randCustPerHour.length; i++) { // this is a for loop to populate the cells and rows with the data related to the length of 'cookies per hour' array in the constructor, and generates random data each time it loops through.
     var dataCell = document.createElement('td'); // this creates the table detail row 'dataCell
-    dataCell.textContent = this.randCustPerHour[i];  // takes the info in cookies per hour array, cycles through the array and puts that info into dataCell as text content.
+    dataCell.textContent = this.randCustPerHour[i]; // takes the info in cookies per hour array, cycles through the array and puts that info into dataCell as text content.
     nameRow.appendChild(dataCell);
   }
   var totalData = document.createElement('td');
@@ -93,9 +93,10 @@ function renderNames() {
     storeArray[i].render();
   }
 }
+var tableFootRow = document.createElement('tr');
+
 
 function footerRow() {
-  var tableFootRow = document.createElement('tr');
   tableFootRow.textContent = 'Totals';
   salmonTable.appendChild(tableFootRow);
   var totalTotal = 0;
@@ -126,8 +127,12 @@ renderNames();
 footerRow();
 
 var formEle = document.getElementById('entryForm');
-formEle.addEventListener('submit', function(event) {
+
+
+function eventListenFunction(event){
+
   event.preventDefault();
+
   var newStoreName = event.target.storeLocal.value;
   var newMin = parseInt(event.target.minInput.value);
   var newMax = parseInt(event.target.maxInput.value);
@@ -135,10 +140,15 @@ formEle.addEventListener('submit', function(event) {
   var newRow = newStoreName;
   var newStore = new Stores(newStoreName, 8, newMin, newMax, newAvg, newRow);
   newStore.randCookiesPerH();
-  newStore.render();
   storeArray.push(newStore);
-});
+  storeArray[storeArray.length-1].render();
+  footerRow();
 
+  event.target.storeLocal.value = null;
+  event.target.minInput.value = null;
+  event.target.maxInput.value = null;
+  event.target.avgInput.value = null;
+}
 
-
+formEle.addEventListener('submit',(eventListenFunction));
 //@jm6
