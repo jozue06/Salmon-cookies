@@ -1,27 +1,16 @@
 'use strict';
 
-var bizHours = [
-  '6am',
-  '7am',
-  '8am',
-  '9am',
-  '10am',
-  '11am',
-  '12pm',
-  '1pm',
-  '2pm',
-  '3pm',
-  '4pm',
-  '5pm',
-  '6pm',
-  '7pm',
-  '8pm'
+var bizHours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'
 ];
 
 var storeArray = [];
 
 var salmonTable = document.getElementById('store1'); //calls HTML to make the table before anyhthing is added and is a global variable at ID tag located in HTML
 
+function myFunction() {
+  document.getElementById('store1').style.cursor = 'default';
+}
+myFunction();
 
 // Constructor for store info and push to storeArray:
 function Stores(name, minCustPerHour, maxCustPerHour, avgCookies) {
@@ -83,9 +72,8 @@ function generateTableHeading() {
   thead = document.createElement('th');
   thead.textContent = 'Location Totals';
   tableRow.appendChild(thead);
-  console.log(salmonTable);
+  //console.log(salmonTable);
   salmonTable.appendChild(tableRow);
-
 }
 
 function renderNames() {
@@ -93,7 +81,6 @@ function renderNames() {
     storeArray[i].render();
   }
 }
-
 
 var tableFootRow = document.createElement('tr');
 function footerRow() {
@@ -121,13 +108,11 @@ new Stores('Seattle Center', 11, 38, 3.7);
 new Stores('Capitol Hill', 20, 38, 2.3);
 new Stores('Alki', 2, 16, 4.6);
 
-
 generateTableHeading();
 renderNames();
 footerRow();
 
 var formEle = document.getElementById('entryForm');
-
 
 function eventListenFunction(event){
 
@@ -137,6 +122,9 @@ function eventListenFunction(event){
   var newMin = parseInt(event.target.minInput.value);
   var newMax = parseInt(event.target.maxInput.value);
   var newAvg = parseFloat(event.target.avgInput.value);
+
+  if(!newStoreName || !newMin || !newMax || !newAvg) return ('fill in data');
+
   var newRow = newStoreName;
   var newStore = new Stores(newStoreName, 8, newMin, newMax, newAvg, newRow);
   newStore.randCookiesPerH();
@@ -151,4 +139,14 @@ function eventListenFunction(event){
 }
 
 formEle.addEventListener('submit',(eventListenFunction));
+
+
+
+
+
+
+
+
+
+
 //@jm6
