@@ -8,14 +8,16 @@ h1{
     text-align: center;
 }
 
+
 .wrapper{
 background-color: #fff;
 position: relative;
 z-index: 600;
 box-shadow:0 0 10px #000;
+overflow: auto;
 }
 body{
-padding-top:100vh;
+padding-top:80vh;
 }
 .header{
 height:100vh;
@@ -41,40 +43,21 @@ text-transform: uppercase;
 }
 .content{
 height:100vh;
-background-color: aquamarine;
-border: 2px rgba(137, 43, 226, 0.87) solid;
+background-color: rgb(138, 153, 148);
+border: 2px rgba(202, 202, 202, 0.87) solid;
 }    
 
+.content_b{
+    height: 30%;
+    background-color: rgb(138, 153, 148);
+    border: 2px rgba(202, 202, 202, 0.87) solid;
+    font-style: italic;
+    }    
 
 body{
     margin: 0;
-    background-color: aquamarine;
+    background-color: rgb(241, 241, 241);
 }    
-
-#tagLine{
-text-align: center;
-}
-
-#stores{
-    width: 80%;
-}
-
-
-#wrapper {
-background-color: rgba(137, 43, 226, 0.87);
-text-align: center;
-}
-
-#news{
-    width: 100%;
-}
-
-img#salmon.logo {
-    width: 50%;
-    display: block;
-    margin: 0 auto;
-
-}   
 
 .column{
     font-family: 'Montserrat', sans-serif;
@@ -82,7 +65,7 @@ img#salmon.logo {
     text-align: center;
 }
 .column h2{
-color: rgba(137, 43, 226, 0.87);
+color: rgba(169, 245, 255, 0.87);
 font-style: italic;
 padding-top: 1%;
 }   
@@ -94,6 +77,14 @@ padding-top: 1%;
     padding-bottom: 8%;
     font-family: 'Merriweather', serif;
     font-size: 150%;
+}
+
+.tagline2{
+    padding-top: 2%;
+    padding-bottom: 1%;
+    font-family: 'Merriweather', serif;
+    font-size: 150%;
+    font-style: italic;
 }
 
 li {
@@ -110,9 +101,9 @@ footer{
     position: relative;
     margin: 10%;
     z-index: 1;
-    background-color:  rgba(137, 43, 226, 0.87);
+    background-color:  rgba(43, 38, 48, 0.87);
 }
 
 footer a{
-    color: aqua;
+    color: rgb(124, 124, 124);
 }

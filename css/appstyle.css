@@ -1,7 +1,7 @@
 body{
     font-family: 'Montserrat', sans-serif;
     margin: auto;
-    background-color: rgb(0, 190, 165);
+    background-color:rgb(138, 153, 148);
 }
 
 h1 {
@@ -10,7 +10,7 @@ h1 {
     margin: auto;
     width: 50%;
     font-weight: bold;
-    color: salmon;
+    color: rgba(169, 245, 255, 0.87);
     font-size: 32px;
 }   
 
@@ -20,7 +20,7 @@ h2{
 }
 
 #entryForm{
-    border: salmon 15px ridge;
+    border:  rgb(241, 241, 241) 5px solid;
     width: 60%;
 }
 
@@ -37,7 +37,7 @@ table {
     padding: 1%;
     background-color: (137, 43, 226, 0.87);
     color: white;
-    background-color: rgba(137, 43, 226, 0.87);
+    background-color: (169, 245, 255, 0.87);
     animation-name: faded;
     animation-duration: 8s;
 }
@@ -48,13 +48,13 @@ table {
 }
 
 td {
-    background-color: salmon;
+    background-color: rgb(54, 164, 179);
     border-right: 1px white solid;
     text-align: center; 
     border-bottom: 1px white solid;
 }
 td:hover{
-    background-color: aqua;
+    background-color: whitesmoke;
 }
 
 th:hover{
@@ -71,17 +71,22 @@ tr {
 /* tr, th, td */
 
 th {
-    background-color: rgba(137, 43, 226, 0.87) ;
+    background-color: rgba(169, 245, 255, 0.87);
 }
 
 #wrapper {  
     width: 100%;
-    background-color: rgba(137, 43, 226, 0.87);
+    background-color: rgba(169, 245, 255, 0.87);
 }
 
 footer{
     text-align: center;
     margin: auto;
+    background-color:  rgba(43, 38, 48, 0.87);
+}
+
+a{
+    color: rgb(124, 124, 124);
 }
 
 img#salmon.logo {
@@ -91,11 +96,6 @@ img#salmon.logo {
 
 }   
 
-
-#center{  
-    position: relative; 
-    border: rgba(137, 43, 226, 0.87) solid;
-}
 
 #store1.cursor{
    cursor: url(img/23466.png);
