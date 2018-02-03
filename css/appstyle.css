@@ -1,0 +1,102 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin: auto;
+    background-color:rgb(138, 153, 148);
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    font-weight: bold;
+    color: rgba(169, 245, 255, 0.87);
+    font-size: 32px;
+}   
+
+h2{ 
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+#entryForm{
+    border:  rgb(241, 241, 241) 5px solid;
+    width: 60%;
+}
+
+
+#tagLine{
+    text-align: center;
+}
+
+#stores{
+    width: 10%;
+}
+
+table {
+    padding: 1%;
+    background-color: (137, 43, 226, 0.87);
+    color: white;
+    background-color: (169, 245, 255, 0.87);
+    animation-name: faded;
+    animation-duration: 8s;
+}
+
+@keyframes faded {
+    from {background-color: rgba(137, 43, 226, 0.87);}
+    to {background-color:  salmon;}
+}
+
+td {
+    background-color: rgb(54, 164, 179);
+    border-right: 1px white solid;
+    text-align: center; 
+    border-bottom: 1px white solid;
+}
+td:hover{
+    background-color: whitesmoke;
+}
+
+th:hover{
+    background-color: bisque;
+}
+
+tr:hover{
+    color: rgb(0, 195, 255);
+}
+
+tr {
+    background-color: rgb(7, 7, 22);
+}
+/* tr, th, td */
+
+th {
+    background-color: rgba(169, 245, 255, 0.87);
+}
+
+#wrapper {  
+    width: 100%;
+    background-color: rgba(169, 245, 255, 0.87);
+}
+
+footer{
+    text-align: center;
+    margin: auto;
+    background-color:  rgba(43, 38, 48, 0.87);
+}
+
+a{
+    color: rgb(124, 124, 124);
+}
+
+img#salmon.logo {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+
+}   
+
+
+#store1.cursor{
+   cursor: url(img/23466.png);
+}
