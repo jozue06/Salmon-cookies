@@ -1,18 +1,17 @@
 'use strict';
 
-var bizHours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'
+var bizHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'
 ];
 
 var storeArray = [];
 
-var salmonTable = document.getElementById('store1'); //calls HTML to make the table before anyhthing is added and is a global variable at ID tag located in HTML
+var salmonTable = document.getElementById('store1');
 
 function myFunction() {
   document.getElementById('store1').style.cursor = 'default';
 }
 myFunction();
 
-// Constructor for store info and push to storeArray:
 function Stores(name, minCustPerHour, maxCustPerHour, avgCookies) {
   this.name = name;
   this.minCustPerHour = minCustPerHour;
@@ -21,19 +20,19 @@ function Stores(name, minCustPerHour, maxCustPerHour, avgCookies) {
   this.randCustPerHour = [];
   this.cookiesPerHour = [];
   this.totalSales = 0;
-  this.randCookiesPerH(); //function1
-  this.cookiesPerCust(); // function2
-  storeArray.push(this); //pushes info to storeArray
+  this.randCookiesPerH();
+  this.cookiesPerCust();
+  storeArray.push(this);
 }
 
-Stores.prototype.render = function () {//renders store names and data from the constructor, which got the numbers by the random number generator pushed to the arrays in the constructors
-  var nameRow = document.createElement('tr'); //creates the row "left to right" starting with the name of the store, then taking all the data points in from the "Store" constructor.
-  var storeColumn = document.createElement('td'); //creates the first column, where the store names will go
-  storeColumn.textContent = this.name; // tells the computer to take the text from the this.name info in the constructor and put it in the location "storeColumn" that was created above.
-  nameRow.appendChild(storeColumn); // makes nameRow get appended to the storeColumn, left to right, then to top to bottom.
-  for (var i = 0; i < this.randCustPerHour.length; i++) { // this is a for loop to populate the cells and rows with the data related to the length of 'cookies per hour' array in the constructor, and generates random data each time it loops through.
-    var dataCell = document.createElement('td'); // this creates the table detail row 'dataCell
-    dataCell.textContent = this.randCustPerHour[i]; // takes the info in cookies per hour array, cycles through the array and puts that info into dataCell as text content.
+Stores.prototype.render = function () {
+  var nameRow = document.createElement('tr');
+  var storeColumn = document.createElement('td');
+  storeColumn.textContent = this.name;
+  nameRow.appendChild(storeColumn);
+  for (var i = 0; i < this.randCustPerHour.length; i++) {
+    var dataCell = document.createElement('td');
+    dataCell.textContent = this.randCustPerHour[i];
     nameRow.appendChild(dataCell);
   }
   var totalData = document.createElement('td');
@@ -42,17 +41,16 @@ Stores.prototype.render = function () {//renders store names and data from the c
   salmonTable.appendChild(nameRow);
 };
 
-Stores.prototype.randCookiesPerH = function () { //function1
+Stores.prototype.randCookiesPerH = function () {
   for (var i = 0; i < bizHours.length; i++) {
     var random = Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour;
     this.cookiesPerHour.push(random);
   }
 };
 
-Stores.prototype.cookiesPerCust = function () { //function2
+Stores.prototype.cookiesPerCust = function () {
   for (var i = 0; i < bizHours.length; i++) {
     var hourCookies = Math.ceil(this.cookiesPerHour[i] * this.avgCookies);
-
     this.randCustPerHour.push(hourCookies);
     this.totalSales += hourCookies;
   }
@@ -72,7 +70,6 @@ function generateTableHeading() {
   thead = document.createElement('th');
   thead.textContent = 'Location Totals';
   tableRow.appendChild(thead);
-  //console.log(salmonTable);
   salmonTable.appendChild(tableRow);
 }
 
@@ -112,13 +109,9 @@ generateTableHeading();
 renderNames();
 footerRow();
 
-
-
-
-
 var formEle = document.getElementById('entryForm');
 
-function eventListenFunction(event){
+function eventListenFunction(event) {
 
   event.preventDefault();
 
@@ -127,9 +120,9 @@ function eventListenFunction(event){
   var newMax = parseInt(event.target.maxInput.value);
   var newAvg = parseFloat(event.target.avgInput.value);
 
-  if(!newStoreName || !newMin || !newMax || !newAvg) return alert('All Data Required');
-  for (var i = 0; i < storeArray.length; i++){
-    if (newStoreName === storeArray[i].name){
+  if (!newStoreName || !newMin || !newMax || !newAvg) return alert('All Data Required');
+  for (var i = 0; i < storeArray.length; i++) {
+    if (newStoreName === storeArray[i].name) {
       return alert('Store name already exists');
     }
   }
@@ -138,7 +131,7 @@ function eventListenFunction(event){
   var newStore = new Stores(newStoreName, 8, newMin, newMax, newAvg, newRow);
   newStore.randCookiesPerH();
   storeArray.push(newStore);
-  storeArray[storeArray.length-1].render();
+  storeArray[storeArray.length - 1].render();
   footerRow();
 
   event.target.storeLocal.value = null;
@@ -147,7 +140,7 @@ function eventListenFunction(event){
   event.target.avgInput.value = null;
 }
 
-formEle.addEventListener('submit',(eventListenFunction));
+formEle.addEventListener('submit', (eventListenFunction));
 
 
 

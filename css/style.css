@@ -8,7 +8,6 @@ h1{
 text-align: center;
 }
 
-
 .wrapper{
 background-color: #fff;
 position: relative;
@@ -68,7 +67,6 @@ align-content: center;
 padding-left: calc(30% - 1px);  
 }    
 
-
 body{
 margin: 0;
 background-color: rgb(241, 241, 241);
@@ -84,7 +82,6 @@ color: rgba(169, 245, 255, 0.87);
 font-style: italic;
 padding-top: 1%;
 }   
-
 
 
 .tagline{
