@@ -112,6 +112,10 @@ generateTableHeading();
 renderNames();
 footerRow();
 
+
+
+
+
 var formEle = document.getElementById('entryForm');
 
 function eventListenFunction(event){
@@ -123,7 +127,12 @@ function eventListenFunction(event){
   var newMax = parseInt(event.target.maxInput.value);
   var newAvg = parseFloat(event.target.avgInput.value);
 
-  if(!newStoreName || !newMin || !newMax || !newAvg) return ('fill in data');
+  if(!newStoreName || !newMin || !newMax || !newAvg) return alert('All Data Required');
+  for (var i = 0; i < storeArray.length; i++){
+    if (newStoreName === storeArray[i].name){
+      return alert('Store name already exists');
+    }
+  }
 
   var newRow = newStoreName;
   var newStore = new Stores(newStoreName, 8, newMin, newMax, newAvg, newRow);
