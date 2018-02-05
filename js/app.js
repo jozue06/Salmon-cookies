@@ -80,6 +80,7 @@ function renderNames() {
 }
 
 var tableFootRow = document.createElement('tr');
+
 function footerRow() {
   tableFootRow.textContent = 'Totals';
   salmonTable.appendChild(tableFootRow);
@@ -130,7 +131,6 @@ function eventListenFunction(event) {
   var newRow = newStoreName;
   var newStore = new Stores(newStoreName, 8, newMin, newMax, newAvg, newRow);
   newStore.randCookiesPerH();
-  storeArray.push(newStore);
   storeArray[storeArray.length - 1].render();
   footerRow();
 
